@@ -1,0 +1,47 @@
+﻿@model IEnumerable<coreData.Model.Intern>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Interns</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              Name Surname
+            </th>
+            <th>
+            Date of Birth
+            </th>
+            <th>
+             Gender
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternNameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternDateofBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternGender)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-outline-warning" asp-route-id="@item.InternID">Edit</a> |
+            
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.InternID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<coreModel.Model.viewModel.PersRoleViewModel>
+
+@{
+    ViewData["Title"] = "Staff & Role Joined Table";
+
+}
+
+<h1>Staff & Role Joined Table </h1>
+<br />
+<br />
+
+
+ <table class= "table alert-dark"> 
+     <thead>
+      <tr>  
+         <th> Personel Name Surname</th>
+
+         <th> Role Name</th>
+          <th> Role Description </th>
+
+        </tr>
+     </thead>
+
+     <tbody>
+
+         @foreach(var item in Model)
+        {
+
+            <tr>
+
+                <td> @item.PersonelNameSurname </td>
+
+                <td> @item.RoleName </td>
+
+
+                <td> @item.RoleDescription</td>
+
+            </tr>
+
+
+        }
+
+
+
+     </tbody>
+
+ </table>

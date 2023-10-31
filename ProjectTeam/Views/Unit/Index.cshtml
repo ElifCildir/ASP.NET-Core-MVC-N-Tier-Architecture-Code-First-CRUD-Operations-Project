@@ -1,0 +1,41 @@
+﻿@model IEnumerable<coreData.Model.Unit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Units</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberofStaff)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberofStaff)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-outline-warning" asp-route-id="@item.UnitID">Edit</a> |
+              
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.UnitID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

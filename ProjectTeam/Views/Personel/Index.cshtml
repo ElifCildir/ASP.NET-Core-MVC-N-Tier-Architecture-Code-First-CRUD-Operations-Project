@@ -1,0 +1,65 @@
+﻿@model IEnumerable<coreData.Model.Personel>
+
+@{
+    ViewData["Title"] = "Staff";
+}
+
+<h1>Staff</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonelNameSurname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonelGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonelStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Roles.RoleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Units.UnitName)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelNameSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roles.RoleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Units.UnitName)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-outline-warning" asp-route-id="@item.PersonelID">Edit</a> |
+       
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.PersonelID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
